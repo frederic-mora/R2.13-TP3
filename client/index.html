@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Les menus de la semaine</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+
+        <section>
+
+            <nav class="week"> <!-- contenu statique -->
+                <h1>Les menus de la semaine</h1>
+                <button onclick="requestMenu('lundi')">Lundi</button>
+                <button onclick="requestMenu('mardi')">Mardi</button>
+                <button onclick="requestMenu('mercredi')">Mercredi</button>
+                <button onclick="requestMenu('jeudi')">Jeudi</button>
+                <button onclick="requestMenu('vendredi')">Vendredi</button>
+                <button onclick="requestMenu('samedi')">Samedi</button>
+                <button onclick="requestMenu('dimanche')">Dimanche</button>
+            </nav>
+
+            <div class="menu"> <!-- contenu dynamique -->
+
+            </div>
+
+        </section>
+
+        <template>
+            <div>
+                <section>
+                    <span>~ Entrée ~</span><br>
+                    <span>{{entree}}</span><br>
+                </section>
+                
+                <section>
+                    <span>~ Plat ~</span><br>
+                    <span>{{plat}}</span><br>
+                </section>
+
+                <section>
+                    <span>~ Dessert ~</span><br>
+                    <span>{{dessert}}</span><br>
+                </section>
+            </div>  
+        </template>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

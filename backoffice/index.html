@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Back Office</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+
+        <section>
+
+            <nav> 
+                <h1>BACK OFFICE</h1>
+                <h2>Les menus de la semaine</h2>
+            </nav>
+
+            <form method='GET' action="../server/script.php">
+
+                <select name="jour">
+                    <option value="lundi">Lundi</option>
+                    <option value="mardi">Mardi</option>
+                    <option value="mercredi">Mercredi</option>
+                    <option value="jeudi">Jeudi</option>
+                    <option value="vendredi">Vendredi</option>
+                    <option value="samedi">Samedi</option>
+                    <option value="dimanche">Dimanche</option>
+                </select>
+
+                <input type="text" name="entree" placeholder="Saisir une entrée">
+                <input type="text" name="plat" placeholder="Saisir un plat">
+                <input type="text" name="dessert" placeholder="Saisir un dessert">
+                
+                <input type="submit" value="Update" name="action">
+
+            </form>
+
+        </section>
+
+    </body>
+</html>
