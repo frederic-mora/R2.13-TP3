@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Back Office</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="./css/base.css">
+    </head>
+    <body>
+
+    <section id="app">
+
+        <nav> 
+            <h1>BACK OFFICE</h1>
+        </nav>
+        
+        <section id="log"></section>
+            
+        <section id="addMenu"></section>
+    
+    </section>
+
+    <script type="module">
+        import {NewMenuForm} from './component/NewMenuForm/script.js';
+        import {Log} from './component/Log/script.js';
+        
+        import {DataMenu} from './data/dataMenu.js';
+       
+        window.C = {};
+
+       C.sayHello = function(){
+            console.log("Hello");
+        }
+      
+       
+        C.start = function(){
+            V.renderMenu("C.sayHello()");
+        }
+
+        window.V = {};
+
+        V.renderLog = function(txt){
+            let content = document.querySelector('#log');
+            content.innerHTML = Log.format(txt);
+        }
+
+        V.renderMenu = function(handler){
+            let content = document.querySelector('#addMenu');
+            content.innerHTML = NewMenuForm.format(handler);
+        }
+
+        C.start();
+    </script>
+    </body>
+</html>
