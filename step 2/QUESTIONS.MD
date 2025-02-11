@@ -8,7 +8,7 @@ La partie serveur ne va pas changer en terme de tâches supportées (envoyer / m
 Mais l'organisation du code change pour améliorer sa lisibilité, sa maintenabilité et son évolutivité.
 
 Désormais la partie serveur comporte 3 fichiers avec des rôles bien précis :
-*   **script.php** : c'est le fichier à qui on adresse toutes les requêtes HTTP
+* **script.php** : c'est le fichier à qui on adresse toutes les requêtes HTTP
     *   on décide d'harmoniser le format des requêtes qui devront comporter un paramètre todo pour être valides.
     *   en fonction de la valeur du paramètre todo, on confie le traitement de la requête à une fonction de contrôle.
   script.php a un rôle d'aiguillage, il "oriente" la requête vers la bonne fonction de contrôle.
@@ -98,7 +98,7 @@ Lorsque l'utilisateur va valider le formulaire, il faudra exécuter du code pour
 et les envoyer au serveur à l'aide de _DataMenu.update_. Dans le fichier index.html, ajoutez à votre contrôleur C
 la fonction suivante : 
 ```js
-C.handler_update = async function(){
+C.handlerUpdate = async function(){
     // Sélectionne l'élément possédant la classe `.addMenu__form`
     // il s'agit de l'élément <form> du composant NewMenuForm
     let form = document.querySelector('.addMenu__form');
@@ -139,7 +139,7 @@ Ouvrez le template du composant _NewMenuForm_. On constate les changements suiva
   
 Actuellemennt il ne se passe rien lorsqu'on clique sur ce bouton. Encore que, vérifiez la console.
 En inspectant le code HTML avec les outils de développement, trouvez ce par quoi le tag ```{{handler}}``` est remplacé.
-Puis modifer index.html pour que le la fonction ```C.handler_update()```soit appelée en cas de validation du formulaire.
+Puis modifer index.html pour que le la fonction ```C.handlerUpdate()```soit appelée en cas de validation du formulaire.
 Si vous y parvenez, vous constaterez :
 *   Que le formulaire est de nouveau fonctionnel et permet la mise à jour d'un menu
 *   La réponse du serveur (de type "Le menu du ... est à jour") s'affiche dans la console du navigateur (notre interface n'est plus remplacée)
@@ -150,5 +150,5 @@ de petit terminal inclus en haut de page. Il s'agit du composant Log. Il vous es
 modifier dans _./backoffice/component/Log/_. Comme pour les autres composants, Log contient une fonction format et c'est la seule
 qui vous sera utile.
 1.   Modifiez index.html pour faire apparaître le composant Log dans l'élément ```<section id="log">```.
-2.   Modifiez la fonction ```C.handler_update```de sorte à ce que les messages du serveur s'affiche dans le composant Log
+2.   Modifiez la fonction ```C.handlerUpdate```de sorte à ce que les messages du serveur s'affiche dans le composant Log
 

@@ -28,7 +28,7 @@ require("model.php");
  * déclarée dans model.php pour mettre à jour le menu dans la base de données.
  * en fonctiondu résultat de la mise à jour, elle retourne un message indiquant si la mise à jour a réussi ou non.
  */
-function updateControler(){
+function updateController(){
   /* Lecture des données de formulaire
     On ne vérifie pas si les données sont valides, on suppose (faudra pas toujours...) que le client les a déjà
     vérifiées avant de les envoyer 
@@ -58,7 +58,7 @@ function updateControler(){
  * 
  * @return mixed Le menu pour le jour spécifié si 'jour' est défini, valide et non vide, sinon false.
  */
-function readControler(){
+function readController(){
     
     if ( isset($_REQUEST['jour'] )==true && empty($_REQUEST['jour'])==false ){
         $jour = $_REQUEST['jour'];

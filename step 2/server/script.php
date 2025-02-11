@@ -53,10 +53,10 @@ if ( isset($_REQUEST['todo']) ){
 
   // en fonction de la valeur de 'todo', on appelle la fonction de contrôle appropriée
   if ($todo == 'update'){
-      $data = controlerUpdate();
+      $data = updateController();
   }
   else{ // il y a un paramètre todo mais sa valeur n'est pas reconnue/supportée
-      echo json_encode(['error' => 'unknown todo value']);
+      echo json_encode('[error] Unknown todo value');
       http_response_code(400); // 400 == "Bad request"
       exit();
   }
@@ -71,7 +71,7 @@ if ( isset($_REQUEST['todo']) ){
    * et un code de réponse HTTP 500 (Internal error), puis termine l'exécution du script (exit()).
    */
   if ($data==false){
-    echo json_encode(['error' => 'controler returns false']);
+    echo json_encode('[error] Controller returns false');
     http_response_code(500); // 500 == "Internal error"
     exit();
   }
