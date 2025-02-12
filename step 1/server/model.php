@@ -22,12 +22,16 @@ define("DBPWD", "root");
 function getMenu($j){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD);
-    // Requête SQL pour récupérer le menu
-    $sql = "select entree, plat, dessert from Repas where jour='$j'";
+    // Requête SQL pour récupérer le menu avec des paramètres
+    $sql = "select entree, plat, dessert from Repas where jour=:jour";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+    // Lie le paramètre à la valeur
+    $stmt->bindParam(':jour', $j);
     // Exécute la requête SQL
-    $answer = $cnx->query($sql); 
+    $stmt->execute();
     // Récupère les résultats de la requête sous forme d'objets
-    $res = $answer->fetchAll(PDO::FETCH_OBJ);
+    $res = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $res; // Retourne les résultats
 }
 
@@ -48,12 +52,19 @@ function getMenu($j){
 function updateMenu($j, $e, $p, $d){
     // Connexion à la base de données
     $cnx = new PDO("mysql:host=".HOST.";dbname=".DBNAME, DBLOGIN, DBPWD); 
-    // Requête SQL de mise à jour du menu
-    $sql = "update Repas set entree='$e', plat='$p', dessert='$d' where jour='$j'";
-     // Exécute la requête SQL
-    $answer = $cnx->query($sql);
+    // Requête SQL de mise à jour du menu avec des paramètres
+    $sql = "update Repas set entree=:entree, plat=:plat, dessert=:dessert where jour=:jour";
+    // Prépare la requête SQL
+    $stmt = $cnx->prepare($sql);
+    // Lie les paramètres aux valeurs
+    $stmt->bindParam(':entree', $e);
+    $stmt->bindParam(':plat', $p);
+    $stmt->bindParam(':dessert', $d);
+    $stmt->bindParam(':jour', $j);
+    // Exécute la requête SQL
+    $stmt->execute();
     // Récupère le nombre de lignes affectées par la requête
-    $res = $answer->rowCount(); 
+    $res = $stmt->rowCount(); 
     return $res; // Retourne le nombre de lignes affectées
 }
 
