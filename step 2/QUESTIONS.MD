@@ -33,14 +33,14 @@ En vous basant sur le code existant compléter script.php pour répondre correct
 Les autres fichiers contiennent déjà tout le nécessaire.
 
 **Q1.2**
-Vous aurez trouvé dans controller.php la fonction de controle _readMenu_. Le contrôle du paramètre jour est minimal :
+Vous aurez trouvé dans controller.php la fonction de controle _readController_. Le contrôle du paramètre jour est minimal :
 On vérifie seulement qu'il est présent et non vide :
 ```php
 if ( isset($_REQUEST['jour'] )==true && empty($_REQUEST['jour'])==false ){...
 ```
 Mais rien n'empêche d'avoir un paramètre jour contenant "janvier" ou "frites", bref, pas un jour de la semaine.
 Interroger le serveur de base de données dans un tel cas n'a pas de sens ne donnera aucun résultat.
-Pour y remédier, ajouter dans la fonction _readMenu_ le tableau suivant : 
+Pour y remédier, ajouter dans la fonction _readController_ le tableau suivant : 
 ```php
 // Tableau des jours de la semaine, va servir à vérifier si le jour spécifié est valide
 $days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
